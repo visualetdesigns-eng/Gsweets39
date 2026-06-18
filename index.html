@@ -124,6 +124,48 @@
     }
 
     .hero-content {
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-outline-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+  padding: 0.85rem 2rem;
+  min-height: 44px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-outline-light:hover {
+  background: var(--white);
+  color: var(--black);
+}
+
+@media (max-width: 768px) {
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-buttons .btn,
+  .hero-buttons .btn-outline-light {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+      
       position: relative; z-index: 2; color: var(--white);
       text-shadow: 0 2px 10px rgba(0,0,0,0.6);
     }
@@ -307,7 +349,16 @@
     <div class="container hero-content">
       <h1>Elevate Your Celebration with Beautiful Desserts, Charcuterie & Catering</h1>
       <p>Custom-designed dessert tables, grazing displays, and catering experiences crafted to impress and made fresh for every event.</p>
-      <a href="#contact" class="btn">Get a Custom Quote</a>
+      <div class="hero-buttons">
+  <a href="#contact" class="btn">Get a Custom Quote</a>
+
+  <a href="image/menu.jpg"
+     class="btn-outline-light"
+     target="_blank"
+     rel="noopener noreferrer">
+    View Menu
+  </a>
+</div>
     </div>
   </section>
 

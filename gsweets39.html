@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#B9904E">
+  <title>Gsweets39 | Luxury Dessert Tables & Charcuterie Catering</title>
+  <meta name="description" content="Custom dessert tables, charcuterie displays, and catering experiences in Upland, California.">
+
+  <!-- Preload ONLY slide 1 — highest browser priority -->
+  <link rel="preload" as="image" href="image/dessert3.jpg" fetchpriority="high">
+
+  <!-- Non-blocking fonts — only weights used -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  </noscript>
+
+  <style>
+    :root {
+      --bronze: #B9904E;
+      --white:  #FFFFFF;
+      --black:  #000000;
+      --radius: 20px;
+      --max-w:  1200px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--black);
+      background: #fffdfb;
+      line-height: 1.6;
+    }
+
+    img { width: 100%; height: auto; display: block; }
+    h1,h2,h3 { font-family: 'Cinzel Decorative', serif; line-height: 1.2; }
+    a { color: inherit; }
+
+    .container { width: min(90%, var(--max-w)); margin: 0 auto; }
+    section { padding: 5rem 0; }
+
+    /* ── HEADER ────────────────────────────── */
+    header {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(255,255,255,0.97);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    nav {
+      display: flex; align-items: center;
+      justify-content: space-between; padding: 0.75rem 0;
+    }
+    .logo img { height: 100px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--bronze); }
+
+    /* ── BUTTON ─────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--bronze); color: var(--white);
+      padding: 0.85rem 2rem; min-height: 44px;
+      border-radius: 999px; text-decoration: none;
+      font-weight: 600; font-size: 1rem; line-height: 1;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.88; }
+
+    /* ── HERO ───────────────────────────────────────────────────────────────
+       Pure CSS background-image slideshow.
+       No <img> tags in slides = no decode-timing white flash.
+       Images are already rendered pixels when the animation fires.
+       Slide 1 is preloaded so it appears immediately.
+       Cross-dissolve: two slides are never both transparent simultaneously
+       because the timing keeps at least one at full opacity at all times.
+    ────────────────────────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 90vh;
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+    }
+
+    /* Each slide fills the hero, stacked via z-index */
+    .hero-slide {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: 0;
+      /* GPU-composited — no layout/paint on transition */
+      will-change: opacity;
+      animation: hsfade 36s linear infinite;
+    }
+
+    /* Stagger each slide by 6s (36s total / 6 slides) */
+    .hero-slide:nth-child(1) { animation-delay:  0s; }
+    .hero-slide:nth-child(2) { animation-delay:  6s; }
+    .hero-slide:nth-child(3) { animation-delay: 12s; }
+    .hero-slide:nth-child(4) { animation-delay: 18s; }
+    .hero-slide:nth-child(5) { animation-delay: 24s; }
+    .hero-slide:nth-child(6) { animation-delay: 30s; }
+
+    /*
+      Timeline per slide (out of 36s):
+        0-5%   = fade in  (0–1.8s)
+        5-25%  = hold full opacity (1.8–9s) ← clean, crisp display
+        25-35% = fade out (9–12.6s)         ← overlap with next slide fading in
+        35-100% = invisible (waiting)
+
+      The fade-out of slide N overlaps the fade-in of slide N+1
+      so there is always at least one image visible — no white flash.
+    */
+    @keyframes hsfade {
+      0%   { opacity: 0; }
+      5%   { opacity: 1; }
+      25%  { opacity: 1; }
+      35%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    .hero-content {
+      position: relative; z-index: 2; color: var(--white);
+      text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+    }
+    .hero-content h1 { font-size: 3rem; margin-bottom: 1rem; }
+    .hero-content p  { font-size: 1.1rem; margin-bottom: 2rem; text-shadow: 0 1px 6px rgba(0,0,0,0.55); }
+
+    /* ── SECTIONS ───────────────────────────── */
+    .section-title { text-align: center; margin-bottom: 3rem; }
+    .section-title h2 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .grid { display: grid; gap: 2rem; }
+    .three-col { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+    /* ── CARDS ──────────────────────────────── */
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2rem;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    .card h3 { margin-bottom: 1rem; color: var(--bronze); }
+    .card ul  { padding-left: 1rem; }
+
+    /* ── ABOUT ──────────────────────────────── */
+    .about {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem; align-items: center;
+    }
+    .features li { list-style: none; padding: 0.5rem 0; }
+
+    /* ── GALLERY ────────────────────────────────────────────────────────────
+       Fixed aspect-ratio cells prevent layout shift while images load.
+       aspect-ratio + object-fit = images always fill the cell perfectly
+       regardless of original dimensions — no stretching, no gaps.
+    ────────────────────────────────────────────────────────────────────── */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid rgba(0,0,0,0.06);
+      /* Reserve space before image loads — no layout shift */
+      aspect-ratio: 4 / 3;
+      background: #f0e8e0; /* soft warm placeholder, not gray */
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .gallery-item.visible { opacity: 1; transform: translateY(0); }
+
+    .gallery-item:nth-child(1) { transition-delay: 0.04s; }
+    .gallery-item:nth-child(2) { transition-delay: 0.08s; }
+    .gallery-item:nth-child(3) { transition-delay: 0.12s; }
+    .gallery-item:nth-child(4) { transition-delay: 0.16s; }
+    .gallery-item:nth-child(5) { transition-delay: 0.20s; }
+    .gallery-item:nth-child(6) { transition-delay: 0.24s; }
+
+    /* First item wider — featured */
+    .gallery-item:first-child {
+      grid-column: span 2;
+      aspect-ratio: 16 / 9;
+    }
+
+    .gallery-item img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      transition: transform 0.35s ease;
+    }
+
+    .gallery-item:hover img  { transform: scale(1.04); }
+    .gallery-item:active img { transform: scale(1.02); }
+
+    .gallery-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.8rem 1rem 0.9rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+      color: var(--white);
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 0.9rem; line-height: 1.3;
+      pointer-events: none;
+    }
+
+    .gallery-cta { text-align: center; margin-top: 2rem; }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: var(--bronze);
+      border: 2px solid var(--bronze);
+      padding: 0.8rem 2rem; min-height: 44px;
+      border-radius: 999px; text-decoration: none;
+      font-weight: 600; font-size: 1rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { background: var(--bronze); color: var(--white); }
+
+    /* ── STEPS ──────────────────────────────── */
+    .steps { counter-reset: step; }
+    .step { position: relative; padding-left: 4rem; margin-bottom: 2rem; }
+    .step::before {
+      counter-increment: step; content: counter(step);
+      position: absolute; left: 0;
+      width: 2.5rem; height: 2.5rem; border-radius: 50%;
+      background: var(--bronze); color: var(--white);
+      display: grid; place-items: center; font-weight: 700;
+    }
+
+    /* ── CONTACT ────────────────────────────── */
+    .contact-card { max-width: 700px; margin: 0 auto; text-align: center; }
+    .contact-card p { margin-bottom: 1rem; }
+    .contact-card a { color: var(--bronze); text-decoration: none; font-weight: 600; }
+
+    /* ── FOOTER ─────────────────────────────── */
+    footer {
+      background: var(--black); color: var(--white);
+      text-align: center; padding: 2rem 0;
+    }
+    footer h3 { margin-bottom: 1rem; }
+    footer p  { margin-bottom: 0.5rem; }
+
+    /* ── MOBILE ─────────────────────────────── */
+    @media (max-width: 768px) {
+      section { padding: 3rem 0; }
+
+      nav { flex-direction: column; gap: 0.8rem; padding: 0.8rem 0; }
+      .logo img { height: 70px; }
+      .nav-links { flex-wrap: wrap; justify-content: center; gap: 0.6rem; font-size: 0.85rem; }
+
+      .hero { height: 80vh; }
+      .hero-content h1 { font-size: 1.8rem; }
+      .hero-content p  { font-size: 0.95rem; padding: 0 0.5rem; }
+
+      .btn { width: 100%; max-width: 300px; }
+
+      /* 2-col gallery, first item full-width */
+      .gallery { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+      .gallery-item:first-child { grid-column: 1 / -1; aspect-ratio: 3 / 2; }
+      .gallery-item { aspect-ratio: 1 / 1; }
+
+      .gallery-label { font-size: 0.75rem; padding: 1.2rem 0.75rem 0.6rem; }
+      .card { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#home" class="logo">
+          <img src="image/transparentgsweets39.png" alt="Gsweets39 Logo"
+               loading="eager" decoding="async" width="160" height="100">
+        </a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO — pure CSS background-image slides, no JS, no white flash -->
+  <section class="hero" id="home">
+    <div class="hero-slide" style="background-image:url('image/dessert3.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('image/dessert8.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('image/dessert14.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('image/dessert4.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('image/dessert5.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('image/dessert6.jpg')"></div>
+
+    <div class="container hero-content">
+      <h1>Elevate Your Celebration with Beautiful Desserts, Charcuterie & Catering</h1>
+      <p>Custom-designed dessert tables, grazing displays, and catering experiences crafted to impress and made fresh for every event.</p>
+      <a href="#contact" class="btn">Get a Custom Quote</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container about">
+      <div>
+        <div class="section-title" style="text-align:left;margin-bottom:1rem;">
+          <h2>Luxury Experiences Designed Around Your Vision</h2>
+        </div>
+        <p>Based in Upland, California, Gsweets39 specializes in custom dessert tables, charcuterie displays, and catering experiences for weddings, birthdays, baby showers, graduations, corporate events, and private gatherings.</p>
+      </div>
+      <div class="card">
+        <ul class="features">
+          <li>✓ Fully customized menus</li>
+          <li>✓ Freshly made to order</li>
+          <li>✓ Elegant presentation</li>
+          <li>✓ Professional setup options</li>
+          <li>✓ Serving Inland Empire, OC, LA & surrounding areas</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-title"><h2>Our Services</h2></div>
+      <div class="grid three-col">
+        <div class="card">
+          <h3>Dessert Tables</h3>
+          <ul>
+            <li>Macaron Towers</li><li>Mini Cheesecakes</li>
+            <li>Tiramisu</li><li>Crème Brûlée</li><li>Chocoflan</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Charcuterie Catering</h3>
+          <ul>
+            <li>Charcuterie Tables</li><li>Flat Lay Grazing Tables</li>
+            <li>Individual Charcuterie Cups</li><li>Fruit Tables</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Catering</h3>
+          <ul>
+            <li>Mini Sandwiches</li><li>Sliders</li><li>Appetizers</li>
+            <li>Brunch Grazing Tables</li><li>Tostiloco Bars</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="container">
+      <div class="section-title"><h2>Gallery</h2></div>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="image/dessert-table2.JPG" alt="Dessert Tables" loading="lazy" decoding="async">
+          <span class="gallery-label">Dessert Tables</span>
+        </div>
+        <div class="gallery-item">
+          <img src="image/dessert9.jpg" alt="Charcuterie Tables" loading="lazy" decoding="async">
+          <span class="gallery-label">Charcuterie Tables</span>
+        </div>
+        <div class="gallery-item">
+          <img src="image/dessert11.jpg" alt="Charcuterie Cups" loading="lazy" decoding="async">
+          <span class="gallery-label">Charcuterie Cups</span>
+        </div>
+        <div class="gallery-item">
+          <img src="image/dessert13.jpg" alt="Catering" loading="lazy" decoding="async">
+          <span class="gallery-label">Catering</span>
+        </div>
+        <div class="gallery-item">
+          <img src="image/dessert8.jpg" alt="Wedding Events" loading="lazy" decoding="async">
+          <span class="gallery-label">Wedding Events</span>
+        </div>
+        <div class="gallery-item">
+          <img src="image/dessert6.jpg" alt="Corporate Events" loading="lazy" decoding="async">
+          <span class="gallery-label">Corporate Events</span>
+        </div>
+      </div>
+      <div class="gallery-cta">
+        <a href="https://www.instagram.com/gsweets39/" target="_blank" rel="noopener noreferrer" class="btn-outline">
+          &#x1F4F7; See More on Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-title"><h2>How Ordering Works</h2></div>
+      <div class="steps">
+        <div class="step"><strong>Share your event details.</strong> Tell us your date, guest count, and location.</div>
+        <div class="step"><strong>Send inspiration photos.</strong> Share your event vision and theme.</div>
+        <div class="step"><strong>Choose your services.</strong> Select desserts, charcuterie, or catering.</div>
+        <div class="step"><strong>Receive a custom quote.</strong> We tailor every experience to your budget.</div>
+        <div class="step"><strong>Reserve your date.</strong> Secure your event with a deposit.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <div class="section-title"><h2>Frequently Asked Questions</h2></div>
+      <div class="grid three-col">
+        <div class="card">
+          <h3>Do you have packages?</h3>
+          <p>No. Every experience is fully customized.</p>
+        </div>
+        <div class="card">
+          <h3>How far do you travel?</h3>
+          <p>We serve Inland Empire, Orange County, Los Angeles, and surrounding areas.</p>
+        </div>
+        <div class="card">
+          <h3>Do you offer setup?</h3>
+          <p>Yes. Simple and styled setup options are available.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Ready to Plan Your Event?</h2>
+        <p>Contact us for a custom quote.</p>
+      </div>
+      <div class="card contact-card">
+        <p><strong>Phone:</strong></p>
+        <p><a href="tel:5623038828">562-303-8828</a></p>
+        <p><strong>Email:</strong></p>
+        <p><a href="mailto:griseldasalamanca.gs@gmail.com">griseldasalamanca.gs@gmail.com</a></p>
+        <p><strong>Instagram:</strong></p>
+        <p><a href="https://www.instagram.com/gsweets39/" target="_blank" rel="noopener noreferrer">@gsweets39</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <h3>Gsweets39</h3>
+      <p>Luxury Dessert Tables, Charcuterie Displays & Catering for Every Celebration</p>
+      <p>Upland, California • Follow us on Instagram @gsweets39</p>
+    </div>
+  </footer>
+
+  <script>
+    /* Gallery scroll reveal — IntersectionObserver, zero layout cost */
+    const items = document.querySelectorAll('.gallery-item');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.08 });
+      items.forEach(el => io.observe(el));
+    } else {
+      items.forEach(el => el.classList.add('visible'));
+    }
+  </script>
+
+</body>
+</html>
